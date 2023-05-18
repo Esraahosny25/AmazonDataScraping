@@ -1,0 +1,416 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Searching" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ProductName" Type="InArgument(x:String)" />
+    <x:Property Name="Category" Type="InArgument(x:String)" />
+    <x:Property Name="Out_ExtractDataTable" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>680,3637</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Searching_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="70">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.Core.Activities.SAP</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="98">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Searching" sap:VirtualizedContainerService.HintSize="690,3572" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser Chrome: Amazon.com. Spend less. Smile more." sap:VirtualizedContainerService.HintSize="628,3461" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="a3e70cce-f2fc-4b79-9106-9427d5b43892" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="594,3244" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="Categories" />
+              <Variable x:TypeArguments="ui:UiElement" Name="FoundCategory" />
+              <Variable x:TypeArguments="x:Double" Name="test" />
+              <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="child" />
+              <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBefore="2" DisplayName="Type Into 'INPUT twotabsearchtextb…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="532,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="a3e70cce-f2fc-4b79-9106-9427d5b43892" Text="[productName]" Timeout="3000" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.amazon.com/" DesignTimeRectangle="330, 171, 585, 38" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT twotabsearchtextb…'" FullSelectorArgument="&lt;webctrl id='twotabsearchtextbox' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='twotabsearchtextbox' tag='INPUT' type='text' /&gt;" Guid="3836d27e-9b02-42fd-97d9-7df9d9e5a1fa" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAnUAAAAqCAYAAADVsK1fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAZnSURBVHhe7dxfS1tJHMbxvode9bIvb6+8iGIoKiGgi0pVRJCgwRBEtxVt1C5dIi0Wu2iWNKAlFs1FZbVoUaGmS5AE99k550xijka7jWWtZ78f+NHOzPk3uXqYOcd79x88FEVRFEVRFHW3696XL1+0lskIAAAAd8vfL3+qlRvq3r59a4cAAABwVxDqAAAAAoBQBwAAEACEOgAAgAAg1AEAAAQAoQ4AACAACHUAAAABQKgDAAAIAEIdAABAABDqAAAAAoBQBwAAEACEOgAAgAC4Qair6GQno9TUpJKmZtIZbe9X7NgteJdQS6hP6U+2/Y2OCjllczs6sW0AAIC7pMlQV9J6ssOEqHaFe4cVnxhWT7RDraGE1u0R/7mbhLrTnGJtIXN+h6bf2z4AAIA7pLlQ92lJPaGQRtZKtsM6s//ehhuEunJ2XC0dCSXjJtglN2wvAADA3dFcqMtPmgAVUjxn21coH+Y0M9KnzmhEnUMJvSoU7YhxvKn07Lj6nTFTPSNzyh5Wt2+Lyv86qZWdik4Ky5qZmtTzvD23cqzsYkKDvc41xzWzsqOy029D3fPCnlYX7XV7hzWTO3ZPu1pFq2MhhZ8WvHDXNq7sqR1y7WllakHrn4rafj3p3Tc6oGlz3fLpgXmW83ul3teF3Ovm9+cbd8v6YtXmaJ7pKLug2FCDc132mQ6L2l2rHtenwdmcjm4zWAMAgFvTXKg73VC8I6SWyKjSW0UvVF20v6T+tnb1P8son980QWtU4VC3Uh+94aO1J4ovLiubc95lW1byZ3O9jifKu6HkQOleE7QiEYW7TFiZSGh6zYSzkrlvl3PfYSXTGfe81DMTZJxT3FBXP5bRzGPTDg1rpS5LXvJ5Wf3OtuuW+f+ZuX5bSLE/6gOU6XOu296nmPu8GaVGna3nkFrNs8Xr79WW0LoNVdfO72KoG+tTq7Py+bv3oAfpAXOtiEYWvWunYhHTHlB63x02qs8U0eDUklbNPVZnzTmmb/DayQIAgKBqLtQZ5Y/LikXbvSD1qNtbJaploYqyzlZmPFcX+A703ASb6G8Htn2Bb/vUC3X+86XdxW53JW31wq6vq9H2a6O+C05emzBkwta2ba8nzX2Hlus+mPACVE+67rn3Xyhq+uLvbNuR+8q9rnqWMzNXEwjDyQ2507Lv90UX99xhj/09xjL292jwTA37AADA/0XToa6qvL+hdLJPrc6HBl3jyn52eneUiobUOVFdqfJWq+Kmr2Vq0z3PUd4v2LFNfXg9fjnU+d5v87ZJW3qXzGgDTYW6PaW6zXPO79i24Z4zoFfuPBwNwpJ9p9AX6hrc6+r5VdkPTh6bOVW3TXcW1GmunczbtvVh3lmtm5TXTagDAAB+Nw51Nfsv3KDjhYpNJU3ICz8e928zmqq+N+ZtMbarZ8zrj/U6q37Xhbpjd0Xru4a6jwvuipu72nihzlfKmgt118/P4x7TldB6/cqj+75iRKm6nOk4SPeZ/urXxYQ6AADg9/1C3VnODRVeGPICWPiX81U5Py/0+bZifaGoUagzeWfK9EUX9MG2fZoIddtPO8z15pQvFnVSV+tTpr97QbvuUc2Euq/NTyqZdtj3npx1uKR+c23/e31SdsLMvRZoCXUAAMCvuVBX3NH61p5OSjZ4nB5re955Ud9+cGCcrAy7L/en6j6kKJf2tOv+gWIv9HTOFryxSlHbz5yVqOtDnbaeKGyCS/98QUfOF6pnFZWO7fW/NdSdbWq648LWa9V75z7VuTQf6q6cn/2IZGTlwBcmvd+zqJURJ8DNadt+83BSmHPvd/4RBKEOAAD4NRfqDt9o8JEJHiZE1Ko9opgJKTVnReVnva86a8eYIBNbs9uvLwfOx5xznyYU/VqoMw5WRtVpAlPtmkPLdV+/fkOoc8cub3O6bODzVhqbCXXXz8/bSq2bQ7Wq8y1tasbdrq2OtatndtP7kMJFqAMAAH7NhTqr/Fd1lamk8lV/H61SuvqYU2fM9Nvmv1dRqbay9QNren6ecsn7fX/0aQIAgNt3o1AHAACAHwOhDgAAIAAIdQAAAAFAqAMAAAgAQh0AAEAAEOoAAAACgFAHAAAQAIQ6AACAACDUAQAABAChDgAAIAAIdQAAAAFAqAMAAAgAQh0AAEAAEOoAAAAC4FKoW8tk7BAAAADuCl+ou//goSiKoiiKoqi7XA/1D+f5bZ1D3vdZAAAAAElFTkSuQmCC" InformativeScreenshot="b54929b23330e1f7e8efc90c1c07c4bb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com. Spend less. Smile more.' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="532,52" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="554,676" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="492,565" sap2010:WorkflowViewState.IdRef="RetryScope_2">
+                    <ui:RetryScope.ActivityBody>
+                      <ActivityAction>
+                        <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="64948af6-d703-4040-abc3-5f44cf410639" InformativeScreenshot="2e756378d67a6671debd34888b8cba53" Selector="&lt;webctrl parentid='nav-search-dropdown-card' tag='DIV' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:RetryScope.ActivityBody>
+                    <ui:RetryScope.Condition>
+                      <ActivityFunc x:TypeArguments="x:Boolean">
+                        <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'pane'" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="49453f7a-2c34-40f4-a04a-6dd47a5df598" InformativeScreenshot="7f4d8cd08c98ac488cb8c135bcf1bd4e" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' idx='*' /&gt;&lt;ctrl role='pane' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                      </ActivityFunc>
+                    </ui:RetryScope.Condition>
+                  </ui:RetryScope>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="ui:UiElement">[FoundCategory]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="ui:UiElement">[Nothing]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <uix:NSelectItem ContinueOnError="True" DelayBefore="3" DisplayName="Select Item 'All Departments'" sap:VirtualizedContainerService.HintSize="532,157" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="[system.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Category)]" OutUiElement="[FoundCategory]" ScopeIdentifier="a3e70cce-f2fc-4b79-9106-9427d5b43892" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="28">
+                  <x:String>All Departments</x:String>
+                  <x:String>Arts &amp; Crafts</x:String>
+                  <x:String>Automotive</x:String>
+                  <x:String>Baby</x:String>
+                  <x:String>Beauty &amp; Personal Care</x:String>
+                  <x:String>Books</x:String>
+                  <x:String>Boys' Fashion</x:String>
+                  <x:String>Computers</x:String>
+                  <x:String>Deals</x:String>
+                  <x:String>Digital Music</x:String>
+                  <x:String>Electronics</x:String>
+                  <x:String>Girls' Fashion</x:String>
+                  <x:String>Health &amp; Household</x:String>
+                  <x:String>Home &amp; Kitchen</x:String>
+                  <x:String>Industrial &amp; Scientific</x:String>
+                  <x:String>Kindle Store</x:String>
+                  <x:String>Luggage</x:String>
+                  <x:String>Men's Fashion</x:String>
+                  <x:String>Movies &amp; TV</x:String>
+                  <x:String>Music, CDs &amp; Vinyl</x:String>
+                  <x:String>Pet Supplies</x:String>
+                  <x:String>Prime Video</x:String>
+                  <x:String>Software</x:String>
+                  <x:String>Sports &amp; Outdoors</x:String>
+                  <x:String>Tools &amp; Home Improvement</x:String>
+                  <x:String>Toys &amp; Games</x:String>
+                  <x:String>Video Games</x:String>
+                  <x:String>Women's Fashion</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.amazon.com/" DesignTimeRectangle="8, 160, 0, 0" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'All Departments'" FullSelectorArgument="&lt;webctrl id='searchDropdownBox' tag='SELECT' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='searchDropdownBox' tag='SELECT' type='' class='nav-search-dropdown searchSelect nav-progressive-attrubute nav-progressive-search-dropdown' aaname='Select the department you want to search in' /&gt;" Guid="13ff46eb-55ed-48d4-a283-796197752a41" InformativeScreenshot="a21875e6889688b701e87e37bcc9c05b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com. Spend less. Smile more.' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <If Condition="[IsNothing(FoundCategory) = true]" sap:VirtualizedContainerService.HintSize="532,395" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem ContinueOnError="True" DisplayName="Select Item 'All Departments'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="All Departments" OutUiElement="[FoundCategory]" ScopeIdentifier="a3e70cce-f2fc-4b79-9106-9427d5b43892" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="28">
+                        <x:String>All Departments</x:String>
+                        <x:String>Arts &amp; Crafts</x:String>
+                        <x:String>Automotive</x:String>
+                        <x:String>Baby</x:String>
+                        <x:String>Beauty &amp; Personal Care</x:String>
+                        <x:String>Books</x:String>
+                        <x:String>Boys' Fashion</x:String>
+                        <x:String>Computers</x:String>
+                        <x:String>Deals</x:String>
+                        <x:String>Digital Music</x:String>
+                        <x:String>Electronics</x:String>
+                        <x:String>Girls' Fashion</x:String>
+                        <x:String>Health &amp; Household</x:String>
+                        <x:String>Home &amp; Kitchen</x:String>
+                        <x:String>Industrial &amp; Scientific</x:String>
+                        <x:String>Kindle Store</x:String>
+                        <x:String>Luggage</x:String>
+                        <x:String>Men's Fashion</x:String>
+                        <x:String>Movies &amp; TV</x:String>
+                        <x:String>Music, CDs &amp; Vinyl</x:String>
+                        <x:String>Pet Supplies</x:String>
+                        <x:String>Prime Video</x:String>
+                        <x:String>Software</x:String>
+                        <x:String>Sports &amp; Outdoors</x:String>
+                        <x:String>Tools &amp; Home Improvement</x:String>
+                        <x:String>Toys &amp; Games</x:String>
+                        <x:String>Video Games</x:String>
+                        <x:String>Women's Fashion</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.amazon.com/" DesignTimeRectangle="8, 160, 0, 0" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'All Departments'" FullSelectorArgument="&lt;webctrl id='searchDropdownBox' tag='SELECT' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl id='searchDropdownBox' tag='SELECT' type='' class='nav-search-dropdown searchSelect nav-progressive-attrubute nav-progressive-search-dropdown' aaname='Select the department you want to search in' /&gt;" Guid="13ff46eb-55ed-48d4-a283-796197752a41" InformativeScreenshot="a21875e6889688b701e87e37bcc9c05b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com. Spend less. Smile more.' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Go'" sap:VirtualizedContainerService.HintSize="532,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a3e70cce-f2fc-4b79-9106-9427d5b43892" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.amazon.com/" DesignTimeRectangle="914, 170, 45, 40" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Go'" FullSelectorArgument="&lt;webctrl id='nav-search-submit-button' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='nav-search-submit-button' tag='INPUT' type='submit' class='nav-input nav-progressive-attribute' aaname='Go' check:text='Go' /&gt;" Guid="4a7e6456-3fb9-4c3a-aad9-165a8eb95887" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADEAAAAsCAYAAADM1FBZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG3SURBVGhD7ZlBSsNAFEB7Bt0oLtqCniBILa7sroJF6EqhXYpF8BIKgmdwJe4Uty6id3CpeA5XthnzYj9WHEImGWh+SOBBmPk/zJs/MwmksbreNtpRJdFsb5mN5ua/9oaZX9HLRAUPl4dm0At0S8DH3diMBzu6JYCKqJegGuoloJYoC7VEWaglbLzHR971+b4Z9ndNt7OdwD1t9NlyiuJNYhbDQIMgSIWYz6cT6zPy4kUCgbOjvWSQzDwDfb05TgYL3NNGHzHEkmN7Vh68SEgF+r1u6pKhjxipiC0mD4UlGJhUIMuaJ0YqkiU+C4UlpAouM5snJ43CEpw8DIh1b+u3QSw55Nr6XSksIUvDZaOy2ckh19bvSi0BlVhOldjYlThiQWbW5WXHW9sWkwcvEq6fHcLj1dD6PFe8SAAiUpE0RFbwIeJNQmDJIMPJw8wD97TJUmPgPkW8S2TFp8jSJMCXyFIlwIfI0iVgUYQ9ZItJoxQSgAgCaitRlFqiLNQSZUG9xJ+fLFEUGZg9xx9ziri/WPjdNZ1ODXyFp2p4ux2Z0UHnVyIMQ6OZRGK+JVRePxIt/RIray3zDdtf/j9lpsY2AAAAAElFTkSuQmCC" InformativeScreenshot="bd3832ed5b4e7a9e52d275cae7b2f61e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com. Spend less. Smile more.' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[Out_ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Name'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='Price'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;/row&gt;&lt;column exact='0' name='Column0' attr='text'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='h2' idx='1' /&gt;&lt;/column&gt;&lt;column css-selector='.a-size-base.a-link-normal.s-underline-text.s-underline-link-text.s-link-style.a-text-normal' name='Column1' attr='text' /&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="532,157" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="a3e70cce-f2fc-4b79-9106-9427d5b43892" Timeout="3000" Version="V3">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="283, -482, 1070, 6550" DesignTimeScaleFactor="1" FriendlyName="'RESULTS Best'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div' parentid='search' tag='DIV' /&gt;" Guid="63e86940-24f0-4d33-9b66-fba2aa4d6247" InformativeScreenshot="e5dd803e94f8d0c871f89f85c3c69775.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com : i phone 14' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <ui:FilterDataTable DataTable="[Out_ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="532,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[Out_ExtractDataTable]" SelectColumnsMode="Keep">
+              <ui:FilterDataTable.Filters>
+                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                  <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
+                    <ui:FilterOperationArgument.Column>
+                      <InArgument x:TypeArguments="x:String">["Name"]</InArgument>
+                    </ui:FilterOperationArgument.Column>
+                  </ui:FilterOperationArgument>
+                  <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="Or" Operator="EMPTY">
+                    <ui:FilterOperationArgument.Column>
+                      <InArgument x:TypeArguments="x:String">["Price"]</InArgument>
+                    </ui:FilterOperationArgument.Column>
+                  </ui:FilterOperationArgument>
+                  <ui:FilterOperationArgument BooleanOperator="Or" Operator="EQ">
+                    <ui:FilterOperationArgument.Column>
+                      <InArgument x:TypeArguments="x:String">["Price"]</InArgument>
+                    </ui:FilterOperationArgument.Column>
+                    <ui:FilterOperationArgument.Operand>
+                      <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                    </ui:FilterOperationArgument.Operand>
+                  </ui:FilterOperationArgument>
+                  <ui:FilterOperationArgument BooleanOperator="Or" Operator="EQ">
+                    <ui:FilterOperationArgument.Column>
+                      <InArgument x:TypeArguments="x:String">["Name"]</InArgument>
+                    </ui:FilterOperationArgument.Column>
+                    <ui:FilterOperationArgument.Operand>
+                      <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                    </ui:FilterOperationArgument.Operand>
+                  </ui:FilterOperationArgument>
+                </scg:List>
+              </ui:FilterDataTable.Filters>
+              <ui:FilterDataTable.SelectColumns>
+                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                  <x:Null />
+                </scg:List>
+              </ui:FilterDataTable.SelectColumns>
+            </ui:FilterDataTable>
+            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Product Price" DataTable="[Out_ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="532,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="532,272" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:Type">[Out_ExtractDataTable.Columns("Product Price").DataType]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:Type">[gettype(system.Double)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[Out_ExtractDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="532,546" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,429" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Double">[test]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Double">[convert.ToDouble(system.text.RegularExpressions.Regex.match(currentrow("Price").ToString,"[0-9,]+.[0-9]{2}").ToString)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="product Price" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="434,192" sap2010:WorkflowViewState.IdRef="UpdateRowItem_2" Row="[CurrentRow]" Value="[test]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+            <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Price" DataTable="[Out_ExtractDataTable]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="532,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_2" />
+            <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="Product Price" DataTable="[Out_ExtractDataTable]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="532,80" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[Out_ExtractDataTable]" SortOrder="Ascending" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF5SURBVDhPlVM9S8NQFBW0+QOO2h+gU9vdSbuLNP0HprtDfoBIhYKgWFyFLLpUC10EjbvawcFC4qJDm4CDllQdHHq9JzdfbYLUA4e8d98959738t4cESnMA2afOSuQC40Cg31EkrBtm3Rdp4qqklqtkmEYwUoKDRi4MhZ0u12az+VoYYowzIALg6GMBVqt5gs2ymWyLCuaL+fzQcYEhikDx3H8LkzTpMt2299C2EUG0gbYf6FUikRJZiBtEFaECbo5bjb/ZxAm79Xr/nxb06KY53l+LIG0QaFYjAQ4yOQfQTdTCAy+HJkycIBLfOIQ4AtRhbe1zmajd5fGFt+J+x1hZNBZJfqwEPgbt1sifNwlOoM0NBjcEJ3z8I4XR3E3KXwOiF5aUqy1iEjiDF4vxAS8WpMqvUOiJ2bviKtvSlXkoSDWA4P4Kr89SCJMkMwcB1/qrPATupa8H/4bYHCVGxhNAC0+n8Yd9LliNvzHhOd8wvxGZEYglzWk/AJk0E1AkKBI3AAAAABJRU5ErkJggg==" InformativeScreenshot="016887c36a288003c7ac15e4e3730bd4.jpg" Selector="&lt;html app='chrome.exe' title='Amazon.com*' /&gt;" Url="https://www.amazon.com/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
